@@ -19,3 +19,10 @@ Admin (inherits from Manager)
 Task
   Attributes: taskID, taskName, taskDescription, assignedTo, status
   Operations: updateStatus(status)
+
+Relationships:
+
+User: Generalization/Specialization relationship with Employee, Manager, and Admin.
+Employee has a composition relationship with Task (an employee "has" tasks).
+Manager has an aggregation relationship with Employee and Task (a manager "assigns" tasks to employees).
+Admin has an association relationship with User (an admin "manages" users).
