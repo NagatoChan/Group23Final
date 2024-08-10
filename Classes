@@ -1,0 +1,21 @@
+Class Diagram
+
+Classes:
+
+User
+  Attributes: userID, username, password, role (Employee/Manager/Admin)
+  Operations: login(), logout()
+
+Employee (inherits from User)
+  Attributes: taskList
+  Operations: viewTasks(), acceptTask(taskID), rejectTask(taskID), updateTaskProgress(taskID, status)
+
+Manager (inherits from Employee)
+  Operations: assignTask(employeeID, taskDetails), editTask(taskID, taskDetails), monitorTaskProgress(taskID)
+
+Admin (inherits from Manager)
+  Operations: addUser(userDetails), deleteUser(userID)
+
+Task
+  Attributes: taskID, taskName, taskDescription, assignedTo, status
+  Operations: updateStatus(status)
