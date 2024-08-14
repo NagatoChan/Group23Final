@@ -12,7 +12,7 @@ Tim Wang hw2586
 
 ### Description of Project
 
-	The project aims to create an employee management system that aims to allow managers to edit and assign tasks to employees, while the employees can view the task assigned to them, choose to accept or reject the task, and mark the task completed upon completion. The system will also have a login authentication with automated detection of user type.
+The project aims to create an employee management system that aims to allow managers to edit and assign tasks to employees, while the employees can view the task assigned to them, choose to accept or reject the task, and mark the task completed upon completion. The system will also have a login authentication with automated detection of user type.
 
 List of features
 1. User Login and Authentication:
