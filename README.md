@@ -25,3 +25,11 @@ List of features
 4. System Administrator Functions
   a. An admin can add or delete user (employee and manager)
   b. All of manager functions
+
+Notes
+1. Compile Main.java and run
+2. The initial user (admin) is user name: Bob, password: admin
+3. There can be only one admin (root user) in the system
+4. There can be multiple managers and multiple employees
+5. Names are unique for each task and user as they are used as key for searching
+6. Please enter correct and existing user and task names.
