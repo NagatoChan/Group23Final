@@ -1,0 +1,39 @@
+Use Case Diagram
+Actors:
+  Employee: The user who is assigned tasks and can manage those tasks.
+  Manager: The user who assigns and monitors tasks.
+  Admin: The user who manages the system, including adding or removing users.
+  System: The system itself handles authentication and user detection.
+
+Use Cases:
+  Login and Authentication (All Actors)
+    The system detects user type and directs to the appropriate dashboard.
+
+  View Tasks (Employee, Manager)
+    Employee views tasks assigned to them.
+    Manager can view tasks they assigned.
+
+  Accept/Reject Tasks (Employee)
+    Employee can choose to accept or reject the tasks assigned.
+
+  Update Task Progress (Employee)
+    Employee updates the status of their tasks (e.g., started, in progress, completed).
+
+  Assign Tasks (Manager)
+    Manager assigns tasks to employees.
+
+  Edit Task Details (Manager)
+    Manager can edit task details after they have been assigned.
+
+  Monitor Task Progress (Manager)
+    Manager monitors the progress of tasks they assigned.
+
+  Add/Delete User (Admin)
+    Admin can add or delete both employees and managers.
+
+  All Employee Functions (Manager, Admin)
+    Manager and Admin can perform all functions available to employees.
+
+  All Manager Functions (Admin)
+    Admin can perform all functions available to managers.
+
