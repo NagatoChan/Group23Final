@@ -2,27 +2,132 @@ Class Diagram
 
 Classes:
 
-User
-  Attributes: userID, username, password, role (Employee/Manager/Admin)
-  Operations: login(), logout()
 
-Employee (inherits from User)
-  Attributes: taskList
-  Operations: viewTasks(), acceptTask(taskID), rejectTask(taskID), updateTaskProgress(taskID, status)
+Employee 
+  Attributes: 
+- tasks: ArryaList<Task>
+- name: String
+- level: int (default=0)
+- password: String
+- count: int
 
-Manager (inherits from Employee)
-  Operations: assignTask(employeeID, taskDetails), editTask(taskID, taskDetails), monitorTaskProgress(taskID)
+  Methods: 
++ Employee(String, String)
++ Employee(String, String, int)
++ addTask(Task): void
++ setTaskStatus(Task, int): void
++ getTasks(): ArrayList<Task>
++ getName(): String
++ getPassword(): String
++ getLevel(): int
++ acceptTask(Task, int): void
++ viewTask(): void
 
-Admin (inherits from Manager)
-  Operations: addUser(userDetails), deleteUser(userID)
+Manager 
+  Attributes: 
+- level: int(default=1)
+  Methods: 
++ Manager(String, string)
++ Manager(String,String,int)
++Manager()
++createTask(USystem): void
++ editTaskDetail(Task, String): void
++ setTaskTitle(Task, String): void
++ viewUser(Usystem, int) void
++ viewTasks(Usystem): void
+
+
+Admin 
+  Attributes: 
+- name: String
++ level: int (default=2)
+- password: String
+
+  Methods: 
++ Admin(String, String, int)
++ addUser(Usystem): void
++ addEmployee(USystem, String, String): int
++ addManager(USystem, String, String): int
 
 Task
-  Attributes: taskID, taskName, taskDescription, assignedTo, status
-  Operations: updateStatus(status)
+  Attributes:
+- AssignedTo: Emploee
+- status: int (default=0)
+- title: String
+-  detail: String
+- timeCreated: Date
+-  accepted: int (default=0)
+- count: int
+
+  Methods: 
++ Task(Employee, String, String)
++ Task(Employee, String)
++ Task()
++ setStatus(int, String): void
++ setAccept(int, String): void
++ setDetail(String): int
++ setTitle(String): int
++ getTitle(): string
++ getStatus(): String
++ getDeatil(): String
++ getAccept(): String
+
+USystem
+  Attributes: 
+- tasks: ArrayList<Task>
+- employees: ArrayList<Employee>
+- managers: ArrayList<Manager>.
+- names: ArrayList<Strings>
+- taskNames: Arraylist<String>
+- admin: Admin
+
+  Methods:
++ Usystem()
++ getTasks(): ArrayList<Task>
++ addTask(Task): void
++ addEmployee(int, Employee): void
++ addManager(int, Manager): void
++ addName(String): int
++ addTaskName(String): int
++ getNames(): ArrayList<String>
++ getAdmin(): Admin
++ getEmployees(): ArrayList<Employee>
++ getManagers(): ArrayList<Manager>
++ searchEmployeeByName(String): Employee
++ searchManagerByName(String): Manager
+
 
 Relationships:
 
-User: Generalization/Specialization relationship with Employee, Manager, and Admin.
-Employee has a composition relationship with Task (an employee "has" tasks).
-Manager has an aggregation relationship with Employee and Task (a manager "assigns" tasks to employees).
-Admin has an association relationship with User (an admin "manages" users).
+Admin and Manager:
+
+Relationship: Inheritance
+Details: Admin is a subclass of Manager, meaning Admin inherits all the attributes and methods of Manager.
+Manager and Employee:
+
+Relationship: Inheritance
+Details: Manager is a subclass of Employee, meaning Manager inherits all the attributes and methods of Employee.
+Employee and Task:
+
+Relationship: Aggregation
+Details: Employee aggregates (or contains) multiple Task objects. This means that an Employee can be assigned multiple tasks, but the Task objects can exist independently of the Employee.
+Task and Employee:
+
+Relationship: Association
+Details: Each Task is associated with an Employee through the AssignedTo attribute, meaning a task is assigned to a specific employee.
+USystem and Admin:
+
+Relationship: Aggregation
+Details: USystem aggregates an Admin object. The Admin is a crucial part of the system, but the system can exist independently of the Admin.
+USystem and Manager:
+
+Relationship: Aggregation
+Details: USystem aggregates multiple Manager objects. Managers are part of the system, but the system can exist independently of them.
+USystem and Employee:
+
+Relationship: Aggregation
+Details: USystem aggregates multiple Employee objects. Employees are part of the system, but the system can exist independently of them.
+USystem and Task:
+
+Relationship: Aggregation
+Details: USystem aggregates multiple Task objects. Tasks are managed by the system, but the system can exist independently of individual tasks.
